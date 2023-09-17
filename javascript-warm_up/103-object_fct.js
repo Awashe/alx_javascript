@@ -7,8 +7,6 @@ const myObject = {
     myObject.value++;
   }
   
-  myObject.incr;
-  
   // Do not call the incr function here
   
   console.log(myObject);
