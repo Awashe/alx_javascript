@@ -1,1 +1,3 @@
-console.log(add(2,5));
+const add = (a, b) => {
+    return a + b;
+  };
