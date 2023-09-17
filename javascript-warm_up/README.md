@@ -1,0 +1,1 @@
+# this is a warm up for javascript projects
