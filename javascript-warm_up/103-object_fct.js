@@ -12,10 +12,10 @@ const myObject = {
   console.log(myObject);
   myObject.incr();
   console.log(myObject);
-
-delete myObject.incr.name;
-console.log(myObject);
-delete myObject.incr.name;
-console.log(myObject);
-delete myObject.incr.name;
-console.log(myObject);
+  
+  // Remove the name property of the incr function
+  Object.defineProperty(myObject.incr, 'name', { 
+    value: '',
+    writable: false,
+    configurable: false
+  });
