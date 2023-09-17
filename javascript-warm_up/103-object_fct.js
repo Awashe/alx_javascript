@@ -19,3 +19,8 @@ const myObject = {
     writable: false,
     configurable: false
   });
+  
+  // Invoke the incr function without console.log
+  myObject.incr();
+  myObject.incr();
+  console.log(myObject);
