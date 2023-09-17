@@ -7,7 +7,7 @@ const myObject = {
     myObject.value++;
   }
   
-  myObject.incr = incr;
+  myObject.incr;
   
   // Do not call the incr function here
   
