@@ -12,3 +12,10 @@ const myObject = {
   console.log(myObject);
   myObject.incr();
   console.log(myObject);
+
+delete myObject.incr.name;
+console.log(myObject);
+delete myObject.incr.name;
+console.log(myObject);
+delete myObject.incr.name;
+console.log(myObject);
