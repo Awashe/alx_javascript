@@ -1,3 +1,4 @@
+//Empty object
 class Rectangle {
-    //Empty object
 };
+module.exports = Rectangle;
