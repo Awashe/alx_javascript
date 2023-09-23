@@ -1,18 +1,17 @@
 const request = require('request');
 const fs = require('fs');
+
 const url = process.argv[2];
-const filePath = process.argv[3];
+const path = process.argv[3];
 
 request.get(url, (error, response, body) => {
-  if (error) {
-    console.error(error);
-  } else {
-    fs.writeFile(filePath, body, {encoding: 'utf-8'}, (error) => {
-      if (error) {
-        console.error(error);
-      } else {
-        console.log(`${filePath}`);
-      }
-    });
-  }
+    if (error){
+        console.log(error);
+    }else {
+        fs.writeFile(path, body, 'utf-8', (writeError) => {
+            if (writeError){
+                console.log(writeError)
+            }
+        })
+    }
 });
