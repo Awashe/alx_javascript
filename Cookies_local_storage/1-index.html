@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cookies</title>
+    </head>
+    <body>
+        <h1>Login to the website</h1>
+        <input type="text" id="firstname" placeholder="First Name">
+        <input type="text" id="email" placeholder="Email">
+        <button onclick="setCookies()">Log me in</button>
+        <br>
+        <h1>Cookies</h1>
+        <button onclick="showCookies()">Show the cookies</button>
+    
+    <script>
+        function setCookies() {
+            const firstname = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+            const expires = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toUTCString(); // Expiration set to 10 days from now
+            const path = "/"; // Cookie accessible from the whole website
+            document.cookie = `firstname=${firstname}; expires=${expires}; path=${path}`;
+            document.cookie = `email=${email}; expires=${expires}; path=${path}`;
+        }
+        function showCookies() {
+            const cookies = document.cookie.split(';').reduce((prev, current) => {
+            const [name, value] = current.trim().split('=');
+            prev[name] = value;
+            return prev;}, {});
+            const paragraph = document.createElement("p");
+            paragraph.innerHTML = `Cookies: ${JSON.stringify(cookies)}`;
+            document.body.appendChild(paragraph);
+        }
+    </script>
+    </body>
+</html>
