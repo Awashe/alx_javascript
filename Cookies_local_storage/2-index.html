@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cookies</title>
+    </head>
+    <body>
+        <h1>Login to the website</h1>
+        <input type="text" id="firstname" placeholder="First Name">
+        <input type="text" id="email" placeholder="Email">
+        <button onclick="setCookies()">Log me in</button>
+        <br>
+        <h1>Cookies</h1>
+        <button onclick="showCookies()">Show the cookies</button>
+        <p id="cookies"></p>
+    
+    <script>
+        function setCookies() {
+            const firstname = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+            const expires = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toUTCString(); // Expiration set to 10 days from now
+            const path = "/"; // Cookie accessible from the whole website
+            document.cookie = `firstname=${firstname}; expires=${expires}; path=${path}`;
+            document.cookie = `email=${email}; expires=${expires}; path=${path}`;
+        }
+        function getCookie(name) {
+            const cookies = document.cookie.split(';').reduce((prev, current) => {
+                const [cookieName, cookieValue] = current.trim().split('=');
+                prev[cookieName] = cookieValue;
+                return prev;
+            }, {});
+            return cookies[name] || '';
+        }
+        function showCookies() {
+            const email = getCookie('email');
+            const firstname = getCookie('firstname');
+            const paragraph = document.getElementById('cookies');
+            paragraph.innerHTML = `Email: ${email} - Firstname: ${firstname}`;
+        }
+    </script>
+    </body>
+</html>
