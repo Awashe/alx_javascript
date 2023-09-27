@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Selecting Elements</title>
+  <style>
+    .highlight {
+      color: red;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p class="highlight">This is a highlighted paragraph.</p>
+  <p>This is a normal paragraph.</p>
+  
+  <script>
+    //Select all elements with class "highlight" and loop through them
+    var highlights = document.querySelectorAll(".highlight");
+    for (var i = 0; i < highlights.length; i++) {
+      //Add class "bold" to the element to make the content boldened
+      highlights[i].classList.add("bold");
+    }
+  </script>
+</body>
+</html>
